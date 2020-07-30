@@ -142,7 +142,7 @@ kmeans.cluster_centers_
 
 # Evaluation
 
-There is no perfect way to evaluate clustering if you don't have the labels, however since this is just an exercise, I do have the labels, so I take advantage of this to evaluate omy clusters.
+There is no perfect way to evaluate clustering if you don't have the labels, however since this is just an exercise, I do have the labels, so I take advantage of this to evaluate my clusters.
 
 ```python
 
@@ -156,7 +156,7 @@ df['Cluster'] = df['Private'].apply(converter)
 df.head()
 ```
 
-img src= "https://user-images.githubusercontent.com/66487971/88945518-c0375300-d296-11ea-9744-d17cc0f01072.png" width = 1000>
+<img src= "https://user-images.githubusercontent.com/66487971/88945518-c0375300-d296-11ea-9744-d17cc0f01072.png" width = 1000>
 
 ```python
 
