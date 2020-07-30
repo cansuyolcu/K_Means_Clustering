@@ -51,7 +51,7 @@ df.info()
 
 <img src= "https://user-images.githubusercontent.com/66487971/88943655-6b92d880-d294-11ea-8158-1d34e4dc0e8e.png" width = 700>
 
-```
+
 ```python
 df.describe()
 ```
