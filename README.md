@@ -166,11 +166,11 @@ print(classification_report(df['Cluster'],kmeans.labels_))
 
 ```
 
-img src= "https://user-images.githubusercontent.com/66487971/88945637-e5c45c80-d296-11ea-9ceb-23f2148695c7.png" width = 450>
+<img src= "https://user-images.githubusercontent.com/66487971/88945637-e5c45c80-d296-11ea-9ceb-23f2148695c7.png" width = 450>
 
 Not so bad considering the algorithm is purely using the features to cluster the universities into 2 distinct groups! 
 
-# This concludes my project here. Thanks for reading all the way through.
+## This concludes my project here. Thanks for reading all the way through.
 
 
 
