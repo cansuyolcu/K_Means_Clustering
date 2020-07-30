@@ -45,5 +45,41 @@ df.head()
 
 <img src= "https://user-images.githubusercontent.com/66487971/88943464-2ff80e80-d294-11ea-855c-9c801beea215.png" width = 1000>
 
+```python
+df.info()
+```
+
+<img src= "https://user-images.githubusercontent.com/66487971/88943655-6b92d880-d294-11ea-8158-1d34e4dc0e8e.png" width = 700>
+
+```
+```python
+df.describe()
+```
+
+<img src= "https://user-images.githubusercontent.com/66487971/88943790-9715c300-d294-11ea-82a8-2d503be524ee.png" width = 700>
+
+# EDA
+
+```python
+
+sns.set_style('whitegrid')
+sns.lmplot('Room.Board','Grad.Rate',data=df, hue='Private',
+           palette='coolwarm',size=6,aspect=1,fit_reg=False)
+           
+```
+
+<img src= "https://user-images.githubusercontent.com/66487971/88943946-c9bfbb80-d294-11ea-8011-925179ad5cf4.png" width = 700>
+
+```python
+sns.set_style('whitegrid')
+sns.lmplot('Outstate','F.Undergrad',data=df, hue='Private',
+           palette='coolwarm',size=6,aspect=1,fit_reg=False)
+           
+```           
+
+
+
+
+
 
 
