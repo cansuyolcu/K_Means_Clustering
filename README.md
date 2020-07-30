@@ -56,7 +56,7 @@ df.info()
 df.describe()
 ```
 
-<img src= "https://user-images.githubusercontent.com/66487971/88943790-9715c300-d294-11ea-82a8-2d503be524ee.png" width = 700>
+<img src= "https://user-images.githubusercontent.com/66487971/88943790-9715c300-d294-11ea-82a8-2d503be524ee.png" width = 1000>
 
 # EDA
 
@@ -68,7 +68,7 @@ sns.lmplot('Room.Board','Grad.Rate',data=df, hue='Private',
            
 ```
 
-<img src= "https://user-images.githubusercontent.com/66487971/88943946-c9bfbb80-d294-11ea-8011-925179ad5cf4.png" width = 700>
+<img src= "https://user-images.githubusercontent.com/66487971/88943946-c9bfbb80-d294-11ea-8011-925179ad5cf4.png" width = 450>
 
 ```python
 sns.set_style('whitegrid')
@@ -77,6 +77,28 @@ sns.lmplot('Outstate','F.Undergrad',data=df, hue='Private',
            
 ```           
 
+
+<img src= "https://user-images.githubusercontent.com/66487971/88944163-11dede00-d295-11ea-834d-01334843095d.png" width = 450>
+
+```python
+
+sns.set_style('darkgrid')
+g = sns.FacetGrid(df,hue="Private",palette='coolwarm',size=6,aspect=2)
+g = g.map(plt.hist,'Outstate',bins=20,alpha=0.7)
+
+```
+<img src= "https://user-images.githubusercontent.com/66487971/88944290-38047e00-d295-11ea-8d38-c256a13d53bc.png" width = 600>
+
+```python
+
+sns.set_style('darkgrid')
+g = sns.FacetGrid(df,hue="Private",palette='coolwarm',size=6,aspect=2)
+g = g.map(plt.hist,'Grad.Rate',bins=20,alpha=0.7)
+
+
+```
+
+img src= "https://user-images.githubusercontent.com/66487971/88944442-68e4b300-d295-11ea-9191-77942cab6fb0.png" width = 700>
 
 
 
