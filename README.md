@@ -87,7 +87,7 @@ g = sns.FacetGrid(df,hue="Private",palette='coolwarm',size=6,aspect=2)
 g = g.map(plt.hist,'Outstate',bins=20,alpha=0.7)
 
 ```
-<img src= "https://user-images.githubusercontent.com/66487971/88944290-38047e00-d295-11ea-8d38-c256a13d53bc.png" width = 600>
+<img src= "https://user-images.githubusercontent.com/66487971/88944290-38047e00-d295-11ea-8d38-c256a13d53bc.png" width = 800>
 
 ```python
 
@@ -98,7 +98,84 @@ g = g.map(plt.hist,'Grad.Rate',bins=20,alpha=0.7)
 
 ```
 
-img src= "https://user-images.githubusercontent.com/66487971/88944442-68e4b300-d295-11ea-9191-77942cab6fb0.png" width = 700>
+<img src= "https://user-images.githubusercontent.com/66487971/88944442-68e4b300-d295-11ea-9191-77942cab6fb0.png" width = 700>
+
+
+I notice there seems to be a private school with a graduation rate of higher than 100%. I am going to change it to 100%.
+
+```python
+df[df['Grad.Rate'] > 100]
+```
+
+<img src= "https://user-images.githubusercontent.com/66487971/88944835-e6a8be80-d295-11ea-8793-a386758905c6.png" width = 1000>
+
+```python
+
+df['Grad.Rate']['Cazenovia College'] = 100
+
+```
+
+Now I check the histogram again.
+
+```python
+
+sns.set_style('darkgrid')
+g = sns.FacetGrid(df,hue="Private",palette='coolwarm',size=6,aspect=2)
+g = g.map(plt.hist,'Grad.Rate',bins=20,alpha=0.7)
+
+```
+
+<img src= "https://user-images.githubusercontent.com/66487971/88945111-4010ed80-d296-11ea-8f71-58090c008314.png" width = 1000>
+
+# K Means Cluster Creation
+
+```python
+
+from sklearn.cluster import KMeans
+kmeans = KMeans(n_clusters=2)
+kmeans.fit(df.drop('Private',axis=1))
+kmeans.cluster_centers_
+
+```
+
+<img src= "https://user-images.githubusercontent.com/66487971/88945268-7484a980-d296-11ea-97ff-a016cd3c101d.png" width = 500>
+
+# Evaluation
+
+There is no perfect way to evaluate clustering if you don't have the labels, however since this is just an exercise, I do have the labels, so I take advantage of this to evaluate omy clusters.
+
+```python
+
+def converter(cluster):
+    if cluster=='Yes':
+        return 1
+    else:
+        return 0
+       
+df['Cluster'] = df['Private'].apply(converter)
+df.head()
+```
+
+img src= "https://user-images.githubusercontent.com/66487971/88945518-c0375300-d296-11ea-9744-d17cc0f01072.png" width = 1000>
+
+```python
+
+from sklearn.metrics import confusion_matrix,classification_report
+print(confusion_matrix(df['Cluster'],kmeans.labels_))
+print(classification_report(df['Cluster'],kmeans.labels_))
+
+```
+
+img src= "https://user-images.githubusercontent.com/66487971/88945637-e5c45c80-d296-11ea-9ceb-23f2148695c7.png" width = 450>
+
+Not so bad considering the algorithm is purely using the features to cluster the universities into 2 distinct groups! 
+
+# This concludes my project here. Thanks for reading all the way through.
+
+
+
+
+
 
 
 
